@@ -177,4 +177,3 @@ end, false)
 
 ```
 
-# discord: https://discord.com/invite/cwczd9maeK
