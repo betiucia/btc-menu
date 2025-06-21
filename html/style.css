@@ -1,0 +1,276 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/* DECLARAÇÃO DAS FONTES */
+@font-face {
+    font-family: 'crock';
+    src: url(fonts/crock.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'HapnaSlabSerif-Medium';
+    src: url(fonts/HapnaSlabSerif-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'chineserocks';
+    src: url(fonts/chineserocks.ttf) format('truetype');
+}
+
+body {
+    background-color: transparent;
+    overflow: hidden;
+    font-family: 'HapnaSlabSerif-Medium'; /* Fonte base */
+}
+
+.hidden {
+    display: none !important;
+}
+
+#menu-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Posições do menu com maior espaçamento */
+#menu-container.align-top-left { left: 2vw; top: 5vh; }
+#menu-container.align-top-right { right: 2vw; top: 5vh; }
+#menu-container.align-bottom-left { left: 2vw; bottom: 5vh; }
+#menu-container.align-bottom-right { right: 2vw; bottom: 5vh; }
+#menu-container.align-center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+#menu-container.align-left { left: 2vw; top: 50%; transform: translateY(-50%); }
+#menu-container.align-right { right: 2vw; top: 50%; transform: translateY(-50%); }
+#menu-container.align-top { left: 50%; top: 5vh; transform: translateX(-50%); }
+#menu-container.align-bottom { left: 50%; bottom: 5vh; transform: translateX(-50%); }
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#menu-buttons {
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#menu-buttons::-webkit-scrollbar { display: none; }
+
+/* ==============================================
+    TEMA 1: DEFAULT (Estilo RDR2 Tradicional)
+==============================================
+*/
+.layout-default {
+    min-width: 380px; width: clamp(380px, 30vw, 450px); color: #fff; padding: 8px;
+    background: url(images/layout/inkroller_1a.png) center/100% 100% no-repeat;
+}
+.layout-default .topline { display: block; width: 90%; height: 4px; margin: -10px auto 0 auto; background: url(images/layout/divider_line.png) center/100% 100% no-repeat; opacity: 0.6; }
+.layout-default .scrollbottom { display: block; width: 90%; height: 59px; margin: -20px auto 0 auto; background: url(images/layout/scroller_right_bottom.png) center/100% 100% no-repeat; opacity: 0.6; }
+.layout-default .menu-header { text-align: center; min-height: 80px; height: auto; background: url(images/layout/menu_header_1a.png) center/90% 100% no-repeat; margin: 30px 0 10px 0; display: flex; align-items: center; justify-content: center; padding: 10px 25px; }
+.layout-default #menu-title { font-family: 'crock', serif; color: #fff; font-weight: 300; font-size: 34px; white-space: normal; word-wrap: break-word; line-height: 1.0; max-width: 100%; }
+.layout-default #menu-buttons { min-height: 275px; max-height: 405px; padding: 0 15px; }
+.layout-default .menu-element { width: 100%; min-height: 55px; padding: 7px; font-size: 22px; text-align: left; margin-top: 6px; background: url(images/layout/selection_box_bg_1d.png) center/100% 100% no-repeat; font-family: "crock", serif; justify-content: space-between; color: #fff; }
+.layout-default .menu-element.selected { background-image: url(images/layout/selsected.png), url(images/layout/selection_box_bg_1d.png); }
+.layout-default .input-container input[type="text"] { background-color: rgba(0,0,0,0.5); border: 1px solid #5a4a3a; color: #fff; }
+.layout-default .checkbox-visual.checked { background-color: #fff; border-color: #fff; }
+.layout-default .checkbox-visual.checked::after { color: #000; }
+.layout-default .footer-item-bar-fill, .layout-default .slider-container input[type="range"]::-webkit-slider-thumb { background: #fff; }
+.layout-default .money-cash, .layout-default .money-cash::before { color: #a1e0a1; }
+.layout-default .money-cash::before { font-size: 0.7em; vertical-align: text-top; margin-right: 3px; }
+.layout-default .money-gold, .layout-default .money-gold::before { color: #FFD700; }
+.layout-default #menu-item-footer { text-align: center; color: #d1bfa0; padding: 10px; border: none; background: none; }
+.layout-default .footer-item { background: none; border: none; padding: 2px; justify-content: center; }
+.layout-default .footer-item-label { font-family: 'HapnaSlabSerif-Medium', serif; font-size: 1rem; color: #fff; }
+.layout-default .back-button.selected { background-image: url(images/layout/selsected.png), url(images/layout/selection_box_bg_1d.png); }
+
+/* ==============================================
+    TEMA 2: OTHER (Novo Estilo Vintage)
+==============================================
+*/
+.layout-other {
+    color: #442d0f; 
+    background: url(images/layout/other-bg.png) center/100% 100% no-repeat;
+    box-shadow: none; 
+    width: clamp(380px, 30vw, 450x);
+    max-height: 90vh;
+    padding: 15px; 
+}
+.layout-other .topline, .layout-other .scrollbottom { display: none; }
+.layout-other .menu-header {
+    background: none;
+    padding: 15px 0px 10px 0px;
+    border: none;
+    margin: 5px 5px 15px 5px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.layout-other .header-decoration-top,
+.layout-other .header-decoration-bottom {
+    width: 100%;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.layout-other .header-decoration-top {
+    background-image: url(images/layout/other-menu-header-top.svg);
+}
+.layout-other .header-decoration-bottom {
+    background-image: url(images/layout/other-menu-header-bottom.svg);
+}
+.layout-other #menu-title {
+    font-family: 'chineserocks', serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    text-align: center;
+    text-transform: uppercase;
+    color: #442d0f;
+    text-shadow: none;
+    line-height: 1; 
+}
+.layout-other #menu-buttons { padding: 5px; display: flex; flex-direction: column; gap: 0; }
+.layout-other .menu-element {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(68, 45, 15, 0.2);
+    padding: 18px 15px;
+    transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+    font-family: 'chineserocks', serif;
+    color: #442d0f;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.layout-other .menu-element.selected, .layout-other .menu-element:hover {
+    background-color: rgba(68, 45, 15, 0.05);
+    transform: scale(1.03); 
+    z-index: 10;
+    position: relative;
+    border-bottom-color: transparent;
+}
+.layout-other #menu-item-footer {
+    padding: 15px;
+    background-color: transparent;
+    border-top: 2px solid #442d0f;
+    margin: 10px 5px 5px 5px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+}
+.layout-other .footer-item { background-color: transparent; padding: 2px 0; border: none; }
+.layout-other .footer-item-label { 
+    font-size: 0.9rem; 
+    color: #442d0f; 
+    font-family: 'HapnaSlabSerif-Medium', serif;
+    font-weight: 600;
+    text-shadow: 0px 0px 1px rgba(68, 45, 15, 0.1);
+}
+.layout-other .money-cash, .layout-other .money-cash::before { color: #3b533b; }
+.layout-other .money-gold, .layout-other .money-gold::before { color: #996515; }
+
+.layout-other .checkbox-container .checkbox-visual {
+    border: 1px solid #442d0f;
+    background-color: rgba(68, 45, 15, 0.1); 
+}
+.layout-other .checkbox-container .checkbox-visual.checked {
+    background-color: #442d0f;
+    border-color: #442d0f;
+}
+.layout-other .checkbox-container .checkbox-visual.checked::after {
+    color: #ccb48c;
+}
+.layout-other .footer-item-bar-fill, .layout-other .slider-container input[type="range"]::-webkit-slider-thumb { background: #442d0f; }
+.layout-other .input-container input[type="text"] { 
+    background-color: rgba(68, 45, 15, 0.1);
+    border: 1px solid #442d0f;
+    color: #442d0f; 
+    font-family: 'HapnaSlabSerif-Medium', serif;
+    font-weight: 600;
+}
+.layout-other .input-container input[type="text"]:focus { 
+    background-color: rgba(68, 45, 15, 0.2); 
+    border-color: #442d0f; 
+}
+
+/* Estilos Partilhados e de Componentes (Adaptados) */
+.menu-element, .footer-item { display: flex; align-items: center; flex-wrap: wrap; }
+.element-label-container { flex-grow: 1; }
+.element-label-container .button-description { display: none; }
+.element-label-container .button-label { font-weight: 700; }
+.element-money-container { display: flex; align-items: center; gap: 15px; padding-left: 15px; flex-shrink: 0; }
+.money-value { font-weight: 700; font-size: 1.1em; display: flex; align-items: center; }
+.money-cash::before { content: '$'; margin-right: 6px; }
+.money-gold::before { content: '●'; margin-right: 6px; line-height: 1; }
+.menu-button { cursor: pointer; width: 100%; }
+.checkbox-container .checkbox-visual { width: 22px; height: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-color 0.2s; flex-shrink: 0; }
+.checkbox-container .checkbox-visual.checked::after { content: '✓'; font-size: 18px; font-weight: bold; }
+.slider-container { align-items: center; }
+.slider-container .element-label-container { flex-basis: 100%; margin-bottom: 10px; }
+.slider-container .slider-controls { display: flex; align-items: center; width: 100%; }
+.slider-container input[type="range"] { -webkit-appearance: none; appearance: none; width: 70%; height: 6px; background: rgba(0,0,0,0.1); border: 1px solid #b5a894; outline: none; cursor: pointer; flex-grow: 1; }
+.slider-container input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 2px; }
+.slider-container .slider-value { width: 40px; text-align: right; font-weight: bold; flex-shrink: 0; margin-left: 10px; }
+.input-container .element-label-container { flex-basis: 100%; margin-bottom: 10px; }
+.input-container input[type="text"] { width: 100%; padding: 8px; font-size: 1em; outline: none; }
+.footer-item-icon { width: 24px; height: 24px; margin-right: 10px; background-size: contain; background-position: center; background-repeat: no-repeat; flex-shrink: 0; }
+.footer-item-bar-container { width: 100%; height: 10px; background-color: rgba(0, 0, 0, 0.1); border: 1px solid #ccc; border-radius: 2px; margin-top: 5px; overflow: hidden; }
+.footer-item-bar-fill { height: 100%; transition: width 0.3s ease-in-out; border-radius: 1px; }
+.footer-item.is-bar-only { padding: 0; background-color: transparent; border: none; }
+.footer-item.is-bar-only .footer-item-bar-container { margin-top: 8px; height: 12px; }
+.back-button { cursor: pointer; justify-content: center; }
+.back-button .element-label-container { display: none; }
+.back-button::before { content: '<'; font-family: monospace; font-size: 24px; font-weight: bold; line-height: 1; }
+.layout-other .back-button { padding: 10px 15px; margin-top: 10px; border-top: 1px solid rgba(68, 45, 15, 0.2); }
+.layout-other .back-button:hover { transform: scale(1.03); }
+.layout-other .back-button::before { color: #442d0f; }
+.layout-default .back-button { margin-top: 15px; }
+.layout-default .back-button.selected { background-image: url(images/layout/selsected.png), url(images/layout/selection_box_bg_1d.png); }
+.layout-default .back-button::before { color: #fff; }
+
+/* ==============================================
+    BARRA DE PROGRESSO
+==============================================
+*/
+#progress-bar-container {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+}
+#progress-bar-label {
+    font-family: 'chineserocks', serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #000;
+}
+.progress-bar-background {
+    width: 100%;
+    height: 12px;
+    background-color: #333;
+    border: 1px solid #111;
+    border-radius: 2px;
+    padding: 1px;
+}
+#progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #a30e0e; 
+    border-radius: 1px;
+    transition: width 0.1s linear;
+}
