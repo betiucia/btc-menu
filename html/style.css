@@ -95,8 +95,10 @@ body {
 .layout-other {
     color: #442d0f; 
     background: url(images/layout/other-bg.png) center/100% 100% no-repeat;
-    box-shadow: none; 
-    width: clamp(380px, 30vw, 450x);
+    border: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+    border-radius: 3px;
+    width: clamp(380px, 30vw, 450px); /* CORREÇÃO: Largura igual ao tema default */
     max-height: 90vh;
     padding: 15px; 
 }
@@ -203,6 +205,15 @@ body {
 .element-label-container { flex-grow: 1; }
 .element-label-container .button-description { display: none; }
 .element-label-container .button-label { font-weight: 700; }
+.element-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .element-money-container { display: flex; align-items: center; gap: 15px; padding-left: 15px; flex-shrink: 0; }
 .money-value { font-weight: 700; font-size: 1.1em; display: flex; align-items: center; }
 .money-cash::before { content: '$'; margin-right: 6px; }
@@ -270,7 +281,7 @@ body {
 #progress-bar-fill {
     width: 0%;
     height: 100%;
-    background-color: #a30e0e; 
+    background-color: #a30e0e; /* Laranja/Vermelho como na imagem */
     border-radius: 1px;
-    transition: width 0.1s linear;
+    transition: width 0.1s linear; /* Transição suave */
 }
